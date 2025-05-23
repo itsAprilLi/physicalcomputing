@@ -1,21 +1,265 @@
 body {
-    margin: 0;
-    height: 100vh;
-    background: linear-gradient(to bottom, #fddde6, #c5dafe);
-    overflow: hidden;
-    font-family: 'Press Start 2P', cursive;
-    position: relative;
-  }
-  
+  margin: 0;
+  background: linear-gradient(to bottom, #fddde6, #c5dafe);
+  font-family: 'Press Start 2P', cursive;
+  color: #333;
+  overflow-x: hidden;
+}
 
-  
-  .title {
-    /* position: absolute; ❌ 不要用 */
-    position: relative; /* ✅ 让它跟随文档流 */
-    display: block;
-    margin: 50px auto;
-    text-align: center;
-    font-size: 3em;
-    text-shadow: 3px 3px #ff1493;
-    white-space: nowrap;
-  }
+.header {
+  margin-top: 120px;
+  text-align: center;
+}
+
+.title {
+  font-size: 8em;
+  color: #fff0f5;
+  white-space: nowrap;
+  text-shadow: 2px 2px #ff1493;
+  user-select: none;
+  margin: 40px auto;
+  display: block;
+  width: fit-content;
+  position: relative;
+}
+
+.tab-row {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  z-index: 50;
+  margin-bottom: 0; /* ✅ 不留空 */
+}
+
+.tab-wrapper {
+  position: relative;
+}
+
+.tab {
+  background-color: #e7d3ff;
+  padding: 16px 32px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 #ffaae8;
+  cursor: pointer;
+  font-size: 1em;
+  color: #ffffff;
+  z-index: 51;
+  position: relative;
+}
+
+.popup {
+  display: none;
+  position: absolute;
+  top: 100%; /* ✅ 紧贴 tab 下方 */
+  left: 0;
+  background: #fff0fa;
+  border: 2px solid #ff64d6;
+  box-shadow: 5px 5px #ff9de2;
+  padding: 20px;
+  z-index: 100;
+  font-size: 0.7em;
+  min-width: 160px;
+}
+
+/* ✅ 保证 popup 内容不被遮挡，且不撑开 tab-row */
+.tab-wrapper:hover .popup {
+  display: block;
+}
+
+.popup a {
+  display: block;
+  color: #d00094;
+  text-decoration: none;
+  margin: 8px 0;
+}
+
+body {
+  margin: 0;
+  background:
+    linear-gradient(to bottom, #fddde6, #c5dafe),
+    repeating-linear-gradient(0deg, rgba(255, 255, 255, 0.629) 0, rgba(255, 255, 255, 0.861) 1px, transparent 1px, transparent 60px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.8) 0, rgba(255,255,255,0.8) 1px, transparent 1px, transparent 60px);
+  background-blend-mode: overlay;
+  font-family: 'Press Start 2P', cursive;
+}
+/* 窗口样式 */
+.window {
+  width: 400px;
+  background-color: #fff0fa;
+  border: 2px solid #ff77aa;
+  border-radius: 5px;
+  box-shadow: 5px 5px #ffadd2;
+  margin: 40px auto;
+  font-family: 'Press Start 2P', cursive;
+  overflow: hidden;
+}
+
+.window-title {
+  background-color: #ffb6d9;
+  color: #fff;
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.7em;
+  border-bottom: 2px solid #ff77aa;
+}
+
+.window-btn {
+  cursor: pointer;
+}
+
+.window-content {
+  padding: 20px;
+  background-color: #fff8fc;
+  color: #333;
+  font-size: 0.6em;
+  line-height: 1.6em;
+}
+
+.content-block {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  margin: 100px auto;
+  width: 90%;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+
+.content-block.reverse {
+  flex-direction: row-reverse;
+}
+.tab-container {
+  display: flex;
+  gap: 30px;
+  margin: 50px auto 20px;
+  justify-content: center;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.tab {
+  padding: 10px 20px;
+  background-color: #e0baff;
+  cursor: pointer;
+  border-radius: 6px;
+  box-shadow: 3px 3px 0 #ff90e8;
+  transition: all 0.2s ease;
+}
+
+.tab:hover {
+  background-color: #ffdcfb;
+}
+
+.tab-content {
+  display: none;
+  margin: 10px auto 40px;
+  padding: 20px;
+  width: fit-content;
+  background-color: #fff5fd;
+  border: 2px solid #ff90e8;
+  box-shadow: 5px 5px #ffc2f2;
+  font-size: 0.7em;
+  font-family: 'Press Start 2P', cursive;
+}
+
+.tab-content a {
+  display: block;
+  margin: 8px 0;
+  color: #d00094;
+  text-decoration: none;
+}
+.content-block {
+  display: flex;
+  align-items: center; /* ✅ 垂直居中对齐内容 */
+  justify-content: center;
+  gap: 40px;
+  margin: 100px auto;
+  width: 90%;
+  max-width: 1000px;
+  flex-wrap: wrap;
+}
+
+/* 图像样式与漂浮动效 */
+.floating-img {
+  width: 350px;
+  animation: float 3s ease-in-out infinite;
+  filter: drop-shadow(0 0 10px rgba(255, 0, 255, 0.2));
+}
+
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.left-img {
+  margin-top: 20px;
+}
+
+.right-img {
+  margin-top: 10px;
+}
+
+.tab-row {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  font-family: 'Press Start 2P', cursive;
+  position: relative;
+  z-index: 10;
+  margin-top: 40px;
+}
+
+.tab-wrapper {
+  position: relative;
+}
+
+.tab {
+  background-color: #e7d3ff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 4px 4px 0 #ff64d6;
+  cursor: pointer;
+  font-size: 0.8em;
+  color: #000;
+  text-decoration: none;
+}
+
+.tab:hover {
+  background-color: #ffdcfb;
+}
+
+.draggable-window {
+  position: absolute;
+  cursor: move;
+  z-index: 10;
+}
+
+.window {
+  width: 280px;
+  background-color: #fff5fd;
+  border: 2px solid #ff90e8;
+  box-shadow: 4px 4px #ffc2f2;
+  font-size: 0.65em;
+}
+
+.window-title {
+  background: #ffccfa;
+  padding: 10px;
+  font-weight: bold;
+  border-bottom: 1px solid #ff90e8;
+}
+
+.window-content {
+  padding: 15px;
+}
+
+.popup-img {
+  width: 100%;
+  border: 2px solid #ff64d6;
+  box-shadow: 2px 2px #ffb7e9;
+}

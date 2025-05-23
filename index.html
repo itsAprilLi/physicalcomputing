@@ -6,11 +6,80 @@
   <title>Physical Computing Workbook</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+  
 </head>
 <body>
-  <div class="title physical">PHYSICAL</div>
-  <div class="title computing">COMPUTING</div>
-  <div class="title workbook">WORKBOOK</div>
+
+  <div class="tab-row">
+  
+    <!-- Activities -->
+    <div class="tab-wrapper">
+      <div class="tab">Activities</div>
+      <div class="popup">
+        <a href="week7.html">Week 7</a>
+        <a href="week8.html">Week 8</a>
+        <a href="week9.html">Week 9</a>
+      </div>
+    </div>
+  
+    <!-- Experiments -->
+    <div class="tab-wrapper">
+      <div class="tab">Experiments</div>
+      <div class="popup">
+        <a href="experiment1.html">Sensor Test</a>
+        <a href="experiment2.html">Theremin</a>
+      </div>
+    </div>
+  
+    <!-- Inspiration -->
+    <div class="tab-wrapper">
+      <div class="tab">Inspiration</div>
+      <div class="popup">
+        <a href="aesthetic.html">Aesthetic Inspiration</a>
+        <a href="tech.html">Tech Inspiration</a>
+      </div>
+    </div>
+  
+  </div>
+  
+  </div>
+  
+
+  <!-- 原有标题 header -->
+  <div class="header">
+    <div class="title physical" id="t1">PHYSICAL</div>
+    <div class="title computing" id="t2">COMPUTING</div>
+    <div class="title workbook" id="t3">WORKBOOK</div>
+  </div>
+
+  <!-- Arduino 内容 -->
+  <div class="content-block">
+    <img src="images/arduino.png" alt="Arduino Icon" class="floating-img left-img">
+    <div class="window">
+      <div class="window-title">
+        <span class="title-text">ARDUINO.EXE</span>
+        <span class="window-btn">🞬</span>
+      </div>
+      <div class="window-content">
+        <p><strong>Arduino</strong> is an open-source electronics platform based on easy-to-use hardware and software. It is commonly used in prototyping and physical computing experiments.</p>
+        <p>During <strong>Week 7 to Week 9</strong>, we explored various interactive prototypes at the <strong>Telstra Creator Space</strong>, including blinking LEDs, sound sensors, and playful input devices.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Physical Computing 内容 -->
+  <div class="content-block reverse">
+    <div class="window">
+      <div class="window-title">
+        <span class="title-text">PHYSICAL_COMPUTING.DOC</span>
+        <span class="window-btn">🞬</span>
+      </div>
+      <div class="window-content">
+        <p><strong>Physical Computing</strong> refers to building interactive systems that sense and respond to the physical world through software and hardware components. It brings code into the realm of touch, light, motion and environment.</p>
+      </div>
+    </div>
+    <img src="images/computer.png" alt="Retro Computer" class="floating-img right-img">
+  </div>
 
   <script src="script.js"></script>
 </body>

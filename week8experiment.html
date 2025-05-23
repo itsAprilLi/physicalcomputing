@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Week 8 experiment</title>
+  <link rel="stylesheet" href="content.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 两个角落浮动图片 -->
+<img src="images/arduino.png" alt="Arduino" class="corner-img left-float" />
+<img src="images/computer.png" alt="Computer" class="corner-img right-float" />
+
+  <!-- Tabs -->
+  <div class="tab-row">
+    <div class="tab-wrapper">
+      <div class="tab">Activities</div>
+      <div class="popup">
+        <a href="week7.html">Week 7</a>
+        <a href="week8.html">Week 8</a>
+        <a href="week9.html">Week 9</a>
+      </div>
+    </div>
+    <div class="tab-wrapper">
+      <div class="tab">Experiments</div>
+      <div class="popup">
+      <a href="week7experiment.html">Week 7</a>
+      <a href="week8experiment.html">Week 8</a>
+      <a href="week9experiment.html">Week 9</a>
+      </div>
+    </div>
+    <div class="tab-wrapper">
+      <div class="tab">Inspiration</div>
+      <div class="popup">
+        <a href="#">Aesthetic</a>
+        <a href="#">Tech</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Smaller Title -->
+  <div class="mini-header">
+      <div class="sub-title" id="subtitle1">EXPERIMENT // WEEK 8</div>
+      <div class="section-label" id="subtitle2"> PHYSICAL COMPUTING WORKBOOK</div>
+      <div class="sub-title" id="subtitle3">EXPERIMENT // WEEK 8</div>
+    </div>
+    
+  </div>
+
+<!-- 左侧：图片 -->
+<div class="draggable-window" style="top: 450px; left: 100px;">
+    <div class="window">
+      <div class="window-title"> <div class="pixel-h1"></div>EXPERIMENT  // LED ADJUSTER</div>
+      <div class="window-content">
+        <img src="images/LEDAdjuster.gif" alt="Blinker Setup" class="popup-img" />
+      </div>
+    </div>
+  </div>
+  
+<!-- ✅ 正确的 draggable window 结构 -->
+<div class="draggable-window" style="top: 450px; left: 650px;">
+    <div class="window">
+        <div class="window-title">EXPERIMENT  // LED ADJUSTER</div>
+      <div class="window-content">
+        <div class="pixel-h1">LED ADJUSTER</div>
+        <div class="pixel-h2">COMPONENTS USED</div>
+        <ul class="parts-list pixel-p">
+          <li>• Arduino x1</li>
+          <li>• Breadboard x1</li>
+          <li>• LED x1</li>
+          <li>• Wire x4</li>
+          <li>• Resistor x1</li>
+          <li>• Protentimeter x1</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
+
+  </div>
+  <script>
+    const componentData = {
+      uno: {
+        img: 'images/uno.jpg',
+        desc: 'The Arduino Uno is the main controller board. It handles all code and communication with components.'
+      },
+      led: {
+        img: 'images/led.jpg',
+        desc: 'LEDs emit light when current passes through them. Used in many indicator projects.'
+      },
+      resistor: {
+        img: 'images/resistor.jpg',
+        desc: 'Resistors limit current flow. They’re essential for protecting LEDs and other components.'
+      },
+      breadboard: {
+        img: 'images/breadboard.jpg',
+        desc: 'The breadboard is used for building circuits without soldering. Components can be easily added or removed.'
+      },
+      jumper: {
+        img: 'images/jumper.jpg',
+        desc: 'Jumper wires connect components on a breadboard to the Arduino.'
+      },
+      servo: {
+        img: 'images/servo.jpg',
+        desc: 'A small motor that can be precisely controlled. Great for robotic arms or movement-based projects.'
+      }
+    };
+    
+    function showComponent(key) {
+    const data = componentData[key];
+    const popup = document.getElementById('component-info');
+  
+    if (data) {
+      // 设置内容
+      document.getElementById('component-img').src = data.img;
+      document.getElementById('component-desc').innerText = data.desc;
+  
+      // 获取主窗口位置
+      const explorer = document.getElementById('kit-explorer');
+      const rect = explorer.getBoundingClientRect();
+  
+      // 设置弹窗位置（右边偏移 +20px）
+      popup.style.left = rect.left + rect.width + 20 + 'px';
+      popup.style.top = rect.top + window.scrollY + 'px'; // 加 scrollY 适配页面滚动
+  
+      popup.style.display = 'block';
+    }
+  }
+  
+  
+  
+    </script>
+    
+    <script src="content.js"></script>
+
+</body>
+</html>

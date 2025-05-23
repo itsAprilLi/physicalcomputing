@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Week 7</title>
+  <link rel="stylesheet" href="content.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- 两个角落浮动图片 -->
+<img src="images/arduino.png" alt="Arduino" class="corner-img left-float" />
+<img src="images/computer.png" alt="Computer" class="corner-img right-float" />
+
+  <!-- Tabs -->
+  <div class="tab-row">
+    <div class="tab-wrapper">
+      <div class="tab">Activities</div>
+      <div class="popup">
+        <a href="week7.html">Week 7</a>
+        <a href="week8.html">Week 8</a>
+        <a href="week9.html">Week 9</a>
+      </div>
+    </div>
+    <div class="tab-wrapper">
+        <div class="tab">Experiments</div>
+        <div class="popup">
+        <a href="week7experiment.html">Week 7</a>
+        <a href="week8experiment.html">Week 8</a>
+        <a href="week9experiment.html">Week 9</a>
+        </div>
+    </div>
+    <div class="tab-wrapper">
+      <div class="tab">Inspiration</div>
+      <div class="popup">
+        <a href="#">Aesthetic</a>
+        <a href="#">Tech</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Smaller Title -->
+  <div class="mini-header">
+      <div class="sub-title" id="subtitle1">PHYSICAL COMPUTING WORKBOOK</div>
+      <div class="section-label" id="subtitle2"> ACTIVITIES // WEEK 9</div>
+      <div class="sub-title" id="subtitle3">PHYSICAL COMPUTING WORKBOOK</div>
+    </div>
+    
+  </div>
+
+  
+  <!-- Window 1: What are we doing in Week 9 -->
+  <div class="draggable-window" style="top: 450px; left: 60px;">
+    <div class="window">
+      <div class="window-title">WOT ARE WE DOING IN WEEK 9</div>
+      <div class="window-content">
+        <p>This week, we’re diving into interaction with sensors! It’s no longer just about pushing buttons — our devices start to feel, hear, and respond 🤖✨</p>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Window 2: From Visual 👀 to Touch 👋 to Hearing 👂 -->
+  <div class="draggable-window" style="top: 620px; left: 60px;">
+    <div class="window">
+      <div class="window-title">FROM VISUAL 👀 TO TOUCH 👋 TO HEARING 👂</div>
+      <div class="window-content">
+        <p>We’ve learned how to manually control lights and sound — now it’s time to unlock **sensing**.</p>
+        <p>This week we explore how to use different kinds of sensors to create different kinds of reactions.</p>
+        <p>Physical computing starts to listen, feel, and respond in **real time**.</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Big Section Title -->
+<div class="section-label" style="position: absolute; top: 830px; left: 60px;">
+    EXPERIMENT // WEEK 9
+  </div>
+
+  <!-- Window 3: Experiment 1 - Keep the distance! -->
+  <div class="draggable-window" style="top: 940px; left: 60px;">
+    <div class="window">
+      <div class="window-title">EXPERIMENT 1: KEEP THE DISTANCE!</div>
+      <div class="window-content">
+        <p>An ultrasonic sensor detects how close you are — and plays a sound when you get too close! 👣🔊</p>
+      </div>
+    </div>
+  </div>
+  
+  <!-- Window 4: Experiment 2 - Singing Banana -->
+  <div class="draggable-window" style="top: 1140px; left: 60px;">
+    <div class="window">
+      <div class="window-title">EXPERIMENT 2: SINGING BANANA</div>
+      <div class="window-content">
+        <p>Touch a banana, an orange, or anything conductive — each one triggers a different sound 🎵🍌🍊</p>
+        <p>It’s like making music with fruit!</p>
+      </div>
+    </div>
+  </div>
+  
+</div>
+<!-- 放在页面最下方的 GIF 链接按钮 -->
+<a href="week9experiment.html" target="_blank" class="gif-link" style="top: 1350px; left: 50%;">
+  <div class="gif-button">
+    <img src="images/Art Love GIF.gif" alt="View Experiment" class="love-gif" />
+    <span class="gif-text">click me to view the experiment</span>
+  </div>
+</a>
+</div>
+
+<!-- 弹出的说明卡片（默认隐藏） -->
+<div id="component-info" class="popup-info" style="display:none;"></div>>
+  <img id="component-img" src="" alt="" />
+  <p id="component-desc"></p>
+</div>
+
+<script>
+  const componentData = {
+    uno: {
+      img: 'images/uno.jpg',
+      desc: 'The Arduino Uno is the main controller board. It handles all code and communication with components.'
+    },
+    led: {
+      img: 'images/led.jpg',
+      desc: 'LEDs emit light when current passes through them. Used in many indicator projects.'
+    },
+    resistor: {
+      img: 'images/resistor.jpg',
+      desc: 'Resistors limit current flow. They’re essential for protecting LEDs and other components.'
+    },
+    breadboard: {
+      img: 'images/breadboard.jpg',
+      desc: 'The breadboard is used for building circuits without soldering. Components can be easily added or removed.'
+    },
+    jumper: {
+      img: 'images/jumper.jpg',
+      desc: 'Jumper wires connect components on a breadboard to the Arduino.'
+    },
+    servo: {
+      img: 'images/servo.jpg',
+      desc: 'A small motor that can be precisely controlled. Great for robotic arms or movement-based projects.'
+    }
+  };
+  
+  function showComponent(key) {
+  const data = componentData[key];
+  const popup = document.getElementById('component-info');
+
+  if (data) {
+    // 设置内容
+    document.getElementById('component-img').src = data.img;
+    document.getElementById('component-desc').innerText = data.desc;
+
+    // 获取主窗口位置
+    const explorer = document.getElementById('kit-explorer');
+    const rect = explorer.getBoundingClientRect();
+
+    // 设置弹窗位置（右边偏移 +20px）
+    popup.style.left = rect.left + rect.width + 20 + 'px';
+    popup.style.top = rect.top + window.scrollY + 'px'; // 加 scrollY 适配页面滚动
+
+    popup.style.display = 'block';
+  }
+}
+
+  </script>
+  
+  <script src="content.js"></script>
+</body>
+</html>
